@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           inject: true,
           module: true,
           __indexOf: true,
-          alert: true //to be removed - no alerts in build JS thank you!!
+          alert: true
         }
       }
     },
