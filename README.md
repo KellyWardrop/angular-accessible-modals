@@ -1,15 +1,12 @@
 # AngularJS Accessible Modals
 
-An AngularJS modal implementation optimised for accessibility.
+AngularJS modal implementation optimised for accessibility.
 
 Comments and contributions are always welcome.
 
 
 ## Usage :
 
-
-## Contributing
- - Please follow [AngularJS GIT conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#)
 
 ## Inspirations
  - http://accessibility.oit.ncsu.edu/blog/2013/09/13/the-incredible-accessible-modal-dialog/
