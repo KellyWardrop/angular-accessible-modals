@@ -1,6 +1,8 @@
 {
   "name": "angular-accessible-modals",
   "version": "0.1.0",
+  "author": "Mike Parsons",
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0",
@@ -9,5 +11,7 @@
     "grunt-contrib-sass": "~0.8.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-jshint": "~0.6.0"
-  }
+  },
+  "analyze": true,
+  "license": "MIT"
 }
