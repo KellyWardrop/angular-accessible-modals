@@ -19,7 +19,7 @@
             '<button class="modal-close" type="button" data-ng-click="closeModal()" aria-label="Close dialog window"><span class="modal-close-label">Close</span></button>' +
           '</div>' +
         '</div>',
-      link: function( $scope, element, attrs ){
+      link: function( scope, element, attrs ){
 
         // Predefine
         var preModalFocusElement = null,
@@ -29,8 +29,8 @@
         // Set ARIA label ID
         $('.modal-title', element).attr('id', 'model-title');
 
-        $scope.openModal = function(){
-          $scope.modalState = true;
+        scope.openModal = function(){
+          scope.modalState = true;
 
           // Save current focus
           preModalFocusElement = $(':focus');
@@ -49,8 +49,8 @@
           });
         };
 
-        $scope.closeModal = function(){
-          $scope.modalState = false;
+        scope.closeModal = function(){
+          scope.modalState = false;
 
           // Load previous focus
           preModalFocusElement.focus();
@@ -60,7 +60,7 @@
 
           // Close modal on Escape keypress
           if( e.which == 27 ){
-            $timeout( $scope.closeModal );
+            $timeout( scope.closeModal );
           }
 
           // Loop focus on tab keypress
