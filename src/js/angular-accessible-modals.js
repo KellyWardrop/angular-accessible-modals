@@ -8,15 +8,14 @@
   'use strict';
   var module = angular.module('accessibleModals', []);
 
-  module.directive('accessibleModal', ['$timeout', function($timeout) {
+  module.directive('accessibleModal', ['$timeout', function( $timeout ){
     return {
       restrict: 'A',
       link: function( scope, element, attrs ) {
 
         var preModalFocusElement = null,
-          focusTypes = 'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), *[tabindex], *[contenteditable]';
-
-        var modalFocusableElements = null;
+          focusTypes = 'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), *[tabindex], *[contenteditable]',
+          modalFocusableElements = null;
 
         scope.openModal = function(){
           scope.modalState = true;
@@ -49,7 +48,7 @@
 
           // Close modal on Escape keypress
           if( e.which == 27 ){
-            scope.closeModal();
+            $timeout( scope.closeModal );
           }
 
           // Loop focus on tab keypress
