@@ -19,7 +19,7 @@ angular.module('MyApp', ['angular-accessible-modals']);
 ```
 
 ## Demo
- - https://github.com/schnipz/angular-accessible-modals/blob/develop/demos/index.html
+ - http://schnipz.github.io/angular-accessible-modals/
 
 ## License
 As AngularJS itself, this module is released under the [MIT license](LICENSE).
