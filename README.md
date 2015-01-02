@@ -1,4 +1,4 @@
-# AngularJS Accessible Modals
+# AngularJS Accessible Modals (Beta)
 
 AngularJS modal implementation optimised for accessibility.
 
@@ -20,9 +20,6 @@ angular.module('MyApp', ['angular-accessible-modals']);
 
 ## Demo
  - https://github.com/schnipz/angular-accessible-modals/blob/develop/demos/index.html
-
-## Inspirations
- - http://accessibility.oit.ncsu.edu/blog/2013/09/13/the-incredible-accessible-modal-dialog/
 
 ## License
 As AngularJS itself, this module is released under the [MIT license](LICENSE).
