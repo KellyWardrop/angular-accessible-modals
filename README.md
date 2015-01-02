@@ -1,7 +1,4 @@
 # AngularJS Accessible Modals v0.1.0
-[![Build Status](https://travis-ci.org/schnipz/angular-accessible-modals.png)](https://travis-ci.org/schnipz/angular-accessible-modals)
-[![Dependency Status](https://david-dm.org/schnipz/angular-accessible-modals.png)](https://david-dm.org/schnipz/angular-accessible-modals)
-[![devDependency Status](https://david-dm.org/schnipz/angular-accessible-modals/dev-status.png)](https://david-dm.org/schnipz/angular-accessible-modals#info=devDependencies)
 
 AngularJS modals optimised for accessibility.
 
