@@ -1,8 +1,10 @@
 /**
- * An AngularJS modal implementation optimised for accessibility.
+ * AngularJS modals optimised for accessibility.
  * https://github.com/schnipz/angular-accessible-modals
  */
-.modal {
+accessible-modal,
+[accessible-modal],
+[data-accessible-modal] {
   bottom: 0;
   display: none;
   left: 0;
@@ -30,30 +32,12 @@
     top: 25%;
     width: 50%;
     z-index: 2;
-
-    .modal-title {
-
-    }
-
-    .modal-content {
-
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-
   }
 
-  .offscreen {
-    height: 1px;
-    left: -999em;
+  .modal-close {
     position: absolute;
-    top: -999em;
-    visibility: hidden;
-    width: 1px;
+    top: 10px;
+    right: 10px;
   }
 
   &.active {

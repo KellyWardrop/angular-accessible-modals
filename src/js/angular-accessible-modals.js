@@ -1,22 +1,33 @@
 /* global angular */
 
 /**
- * An AngularJS modal implementation optimised for accessibility.
+ * AngularJS modals optimised for accessibility.
  * https://github.com/schnipz/angular-accessible-modals
  */
 (function() {
   'use strict';
   var module = angular.module('accessibleModals', []);
 
-  module.directive('accessibleModal', ['$timeout', function($timeout) {
+  module.directive('accessibleModal', ['$timeout', function( $timeout ){
     return {
-      restrict: 'A',
-      link: function( scope, element, attrs ) {
+      restrict: 'AE',
+      transclude: true,
+      template: '<div class="modal-overlay" data-ng-click="closeModal()" tabindex="-1"></div>' +
+        '<div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-hidden="{{ !modalState }}">' +
+          '<div role="document">' +
+            '<div class="modal-content" data-ng-transclude></div>' +
+            '<button class="modal-close" type="button" data-ng-click="closeModal()" aria-label="Close dialog window"><span class="modal-close-label">Close</span></button>' +
+          '</div>' +
+        '</div>',
+      link: function( scope, element, attrs ){
 
+        // Predefine
         var preModalFocusElement = null,
+          modalFocusableElements = null,
           focusTypes = 'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), *[tabindex], *[contenteditable]';
 
-        var modalFocusableElements = null;
+        // Set ARIA label ID
+        $('.modal-title', element).attr('id', 'model-title');
 
         scope.openModal = function(){
           scope.modalState = true;
@@ -49,7 +60,7 @@
 
           // Close modal on Escape keypress
           if( e.which == 27 ){
-            scope.closeModal();
+            $timeout( scope.closeModal );
           }
 
           // Loop focus on tab keypress
@@ -72,10 +83,11 @@
               }
             }
           }
-
         };
+
       }
     };
+
   }]);
 
 })();
