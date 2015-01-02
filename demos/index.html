@@ -19,30 +19,17 @@
   <div class="main-container">
     <h1>AngularJS Accessible Modals</h1>
     <p>AngularJS modal implementation optimised for accessibility</p>
-    <button type="button" data-ng-click="openModal()">Open example modal</button>
+    <button type="button" data-ng-click="openModal()">Open modal</button>
   </div>
 
-  <div class="modal" data-accessible-modal data-ng-class="{ 'active': modalState }">
-    <div class="modal-overlay" data-ng-click="closeModal()" tabindex="-1"></div>
-    <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="{{ !modalState }}">
-      <div role="document">
-        <h2 class="modal-title" id="modal-title">Modal title</h2>
-        <div class="modal-content">
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Links:</p>
-          <ul>
-            <li><a href="#">Example link 1</a></li>
-            <li><a href="#">Example link 2</a></li>
-          </ul>
-          <p>Buttons</p>
-          <button type="button">Example button 1</button>
-          <button type="button">Example button 2</button>
-
-        </div>
-        <button class="modal-close" type="button" data-ng-click="closeModal()" aria-label="Close dialog window">&times;</button>
-      </div>
-    </div>
+  <div data-accessible-modal data-ng-class="{ 'active': modalState }">
+    <h2 class="modal-title">Modal title (ARIA dialog label)</h2>
+    <p>Focus is automatically brought to the modal.</p>
+    <a href="#">Example link</a>
+    <p>Tab forwards and backwards around focusable elements without leaving the modal...</p>
+    <button type="button">Example button</button>
+    <p>Close the modal using the dedicated button top right, the Esc key, or by clicking anywhere in the background overla.y</p>
+    <p>Have a play, see what you think.</p>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
