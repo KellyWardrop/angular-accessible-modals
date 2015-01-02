@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<!--[if IE 7]>     <html lang="en-US" class="no-js ie ie7 ltie10 ltie9 ltie8" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
-<!--[if IE 8]>     <html lang="en-US" class="no-js ie ie8 ltie10 ltie9" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
-<!--[if IE 9]>     <html lang="en-US" class="no-js ie ie9 ltie10" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
-<!--[if gt IE 9]>  <html lang="en-US" class="no-js ie" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en-US" class="no-js" itemscope itemtype="http://schema.org/WebPage"> <!--<![endif]-->
+<!--[if IE 7]>     <html id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp" lang="en-US" direction="ltr" class="ie ie7 ltie10 ltie9 ltie8"> <![endif]-->
+<!--[if IE 8]>     <html id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp" lang="en-US" direction="ltr" class="ie ie8 ltie10 ltie9"> <![endif]-->
+<!--[if IE 9]>     <html id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp" lang="en-US" direction="ltr" class="ie ie9 ltie10"> <![endif]-->
+<!--[if gt IE 9]>  <html id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp" lang="en-US" direction="ltr" class="ie"> <![endif]-->
+<!--[if !IE]><!--> <html id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="DemoApp" lang="en-US" direction="ltr"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
 
   <title>AngularJS Accessible Modals</title>
   <meta name="description" content="AngularJS modal implementation optimised for accessibility" />
@@ -21,15 +16,46 @@
 </head>
 <body>
 
-  <div class="main-container">
+  <div class="main-container" aria-hidden="{{ modalState }}">
     <h1>AngularJS Accessible Modals</h1>
     <p>AngularJS modal implementation optimised for accessibility</p>
-    <button type"button">Open demo modal</button>
+    <button type="button" data-ng-click="openModal()">Open example modal</button>
+  </div>
+
+  <div class="modal" data-accessible-modal data-ng-class="{ 'active': modalState }">
+    <div class="modal-overlay" data-ng-click="closeModal()" tabindex="-1"></div>
+    <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="{{ !modalState }}">
+      <div role="document">
+        <h2 class="modal-title" id="modal-title">Modal title</h2>
+        <div class="modal-content">
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Links:</p>
+          <ul>
+            <li><a href="#">Example link 1</a></li>
+            <li><a href="#">Example link 2</a></li>
+          </ul>
+          <p>Buttons</p>
+          <button type="button">Example button 1</button>
+          <button type="button">Example button 2</button>
+
+        </div>
+        <button class="modal-close" type="button" data-ng-click="closeModal()" aria-label="Close dialog window">&times;</button>
+      </div>
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-aria.min.js"></script>
   <script src="../dist/angular-accessible-modals.js"></script>
+  <script type="text/javascript">
+    (function() {
+      'use strict';
 
+      angular.module('DemoApp', ['ngAria','accessibleModals']);
+
+    })();
+  </script>
 </body>
 </html>
