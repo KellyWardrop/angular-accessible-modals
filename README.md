@@ -1,6 +1,6 @@
 # AngularJS Accessible Modals (Beta)
 
-AngularJS modal implementation optimised for accessibility.
+AngularJS modals optimised for accessibility.
 
 Comments and contributions are always welcome.
 
